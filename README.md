@@ -116,18 +116,23 @@ STOCK_REACT_MICROSERVICE
       Global styles
 ```
 
-Backend Microservices
+## Backend Microservices
 
 This frontend connects to backend services built with:
 
-Spring Boot
+- Spring Boot
+- Apache Kafka
+- Redis
+- WebSocket
 
-Apache Kafka
-
-Redis
-
-WebSocket
-
-Backend repository:
+**Backend repository**
 
 https://github.com/YungHuang85/real-time-market-data-platform-backend
+
+---
+
+## Example Symbols
+
+- NVDA
+- TSLA
+- BINANCE:BTCUSDT
