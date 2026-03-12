@@ -38,73 +38,85 @@ Built to work with a Spring Boot microservices backend powered by Apache Kafka e
 ### Styling
 - CSS
 
-Project Structure
-src
-├─ app
-│  └─ router.tsx
-│     React Router configuration, defines application routes
-│
-├─ components
-│  Reusable UI components
-│
-│  ├─ chart
-│  │  └─ CandleChart.tsx
-│  │     Candlestick chart component using lightweight-charts
-│  │
-│  ├─ market
-│  │  ├─ CompanyPanel.tsx
-│  │  │     Displays company profile information
-│  │  │
-│  │  ├─ MetricPanel.tsx
-│  │  │     Displays financial metrics (PE, EPS, PB, Dividend Yield)
-│  │  │
-│  │  ├─ NewsPanel.tsx
-│  │  │     Displays market news related to the selected symbol
-│  │  │
-│  │  ├─ PricePanel.tsx
-│  │  │     Displays real-time market price
-│  │  │
-│  │  └─ RecommendationPanel.tsx
-│  │        Displays analyst recommendation (BUY / HOLD / SELL)
-│  │
-│  └─ search
-│     └─ SymbolSearch.tsx
-│        Search input for selecting market symbols
-│
-├─ hooks
-│  Custom React hooks responsible for data logic
-│
-│  ├─ useCandles.ts
-│  │     Fetch candlestick data from Candle microservice
-│  │
-│  ├─ useMarketData.ts
-│  │     Fetch company info, metrics, recommendations and news
-│  │
-│  └─ usePriceStream.ts
-│        Subscribe to real-time market prices via WebSocket
-│
-├─ pages
-│  └─ DashboardPage.tsx
-│     Main dashboard page combining all UI components
-│
-├─ services
-│  API communication layer
-│
-│  ├─ candleService.ts
-│  │     Fetch historical candlestick data
-│  │
-│  └─ quoteService.ts
-│        Fetch market data and subscribe symbol streams
-│
-├─ types
-│  └─ market.ts
-│     TypeScript interfaces for market data models
-│
-├─ App.tsx
-│  React application root component
-│
-├─ main.tsx
-│  Application entry point that mounts React to the DOM
-│
-└─ index.css
-   Global styles
+
+STOCK_REACT_MICROSERVICE
+└─ src
+   ├─ app
+   │  └─ router.tsx
+   │     └─ React Router 路由設定，定義 URL 對應的頁面
+   │
+   ├─ components
+   │  └─ UI 元件層（只負責畫畫面）
+   │
+   │  ├─ chart
+   │  │  └─ CandleChart.tsx
+   │  │     └─ K 線圖元件，使用 lightweight-charts 繪製 OHLC K 線
+   │  │
+   │  ├─ market
+   │  │  ├─ CompanyPanel.tsx
+   │  │  │  └─ 顯示公司資訊（名稱、交易所、IPO、Logo、Website）
+   │  │  ├─ MetricPanel.tsx
+   │  │  │  └─ 顯示財務指標（PE、EPS、PB、Dividend Yield）
+   │  │  ├─ NewsPanel.tsx
+   │  │  │  └─ 顯示股票相關新聞
+   │  │  ├─ PricePanel.tsx
+   │  │  │  └─ 顯示即時股價
+   │  │  └─ RecommendationPanel.tsx
+   │  │     └─ 顯示分析師建議（BUY / HOLD / SELL）
+   │  │
+   │  └─ search
+   │     └─ SymbolSearch.tsx
+   │        └─ 股票搜尋元件，輸入股票代碼後切換 Dashboard 資料
+   │
+   ├─ hooks
+   │  └─ React 自訂 Hook（資料邏輯層）
+   │
+   │  ├─ useCandles.ts
+   │  │  └─ 取得 K 線資料，呼叫 Candle Microservice API
+   │  ├─ useMarketData.ts
+   │  │  └─ 取得市場資料（公司資訊、metrics、news、recommendation）
+   │  └─ usePriceStream.ts
+   │     └─ 訂閱 WebSocket 即時價格
+   │
+   ├─ pages
+   │  └─ DashboardPage.tsx
+   │     └─ 主儀表板頁面，整合各 UI 元件
+   │
+   ├─ services
+   │  └─ API 呼叫層
+   │
+   │  ├─ candleService.ts
+   │  │  └─ 呼叫 Candle Microservice API 取得 K 線資料
+   │  └─ quoteService.ts
+   │     └─ 呼叫 Quote Microservice API 取得市場資料
+   │
+   ├─ types
+   │  └─ market.ts
+   │     └─ TypeScript 型別定義（Price、Company、Metric、Recommendation、News）
+   │
+   ├─ App.tsx
+   │  └─ React 應用程式入口，載入 Router
+   │
+   ├─ main.tsx
+   │  └─ React 應用程式入口點，負責初始化並掛載 App
+   │
+   ├─ index.css
+   │  └─ 全域樣式
+   │
+   ├─ index.html
+   │  └─ Vite 前端入口 HTML
+   │
+   ├─ eslint.config.js
+   │  └─ ESLint 程式碼品質檢查設定
+   │
+   ├─ vite.config.ts
+   │  └─ Vite 建置工具設定
+   │
+   ├─ tsconfig.json
+   │  ├─ tsconfig.app.json
+   │  └─ tsconfig.node.json
+   │
+   ├─ package.json
+   ├─ package-lock.json
+   └─ README.md
+
