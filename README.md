@@ -114,3 +114,20 @@ STOCK_REACT_MICROSERVICE
    │
    └─ index.css
       Global styles
+
+
+Backend Microservices
+
+This frontend connects to backend services built with:
+
+Spring Boot
+
+Apache Kafka
+
+Redis
+
+WebSocket
+
+Backend repository:
+
+https://github.com/YungHuang85/real-time-market-data-platform-backend
