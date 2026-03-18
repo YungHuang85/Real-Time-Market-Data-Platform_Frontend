@@ -1,33 +1,37 @@
-React dashboard for real-time stock and cryptocurrency market data visualization.  
-The application receives streaming market data via WebSocket and renders live prices, candlestick charts, and company information in a responsive dashboard.
+# Real-Time Market Dashboard Frontend
 
-Built to work with a **Spring Boot microservices backend powered by Apache Kafka event streaming**.
+React dashboard for real-time stock and cryptocurrency market data visualization.
+
+This application receives streaming market data over WebSocket and displays live prices, candlestick charts, company information, analyst recommendations, and market news in a responsive dashboard.
+
+It is designed to work with a Spring Boot microservices backend powered by Apache Kafka event streaming.
 
 ---
 
 ## Features
 
-### Real-Time Market Price
-- WebSocket streaming market prices
+### Real-Time Price Streaming
+- WebSocket-based live price updates
+- STOMP protocol support
 - Dynamic symbol subscription
-- Live price updates without page refresh
+- No page refresh required
 
 ### Candlestick Chart
-- Historical K-line data visualization
-- Interactive financial chart
-- Supports multiple time ranges
+- Historical candlestick data visualization
+- Interactive chart built with Lightweight Charts
+- Supports stock and crypto symbols
 
 ### Company Information
 - Company profile
-- Market metrics
-- IPO date and company details
+- Market capitalization and exchange details
+- IPO date and website information
 
 ### Analyst Recommendation
 - Buy / Hold / Sell statistics
-- Visualized analyst sentiment
+- Simple sentiment visualization
 
 ### Market News
-- Latest market news for selected symbol
+- Latest related news for the selected symbol
 - External news API integration
 
 ---
@@ -37,9 +41,12 @@ Built to work with a **Spring Boot microservices backend powered by Apache Kafka
 ### Frontend
 - React
 - TypeScript
+- Vite
+- React Router
 - Lightweight Charts
 
 ### Communication
+- REST API
 - WebSocket
 - STOMP Protocol
 
@@ -51,69 +58,61 @@ Built to work with a **Spring Boot microservices backend powered by Apache Kafka
 ## Project Structure
 
 ```text
-STOCK_REACT_MICROSERVICE
+stock_react_microservice
 ├─ src
-├─ app
-│  └─ router.tsx
-│     React Router configuration
-│
-├─ components
-│  UI component layer
-│  ├─ chart
-│  │  └─ CandleChart.tsx
-│  │     Candlestick chart component
-│  │
-│  ├─ market
-│  │  ├─ CompanyPanel.tsx
-│  │  │  Displays company information
-│  │  ├─ MetricPanel.tsx
-│  │  │  Displays financial metrics
-│  │  ├─ NewsPanel.tsx
-│  │  │  Displays related news
-│  │  ├─ PricePanel.tsx
-│  │  │  Displays real-time price
-│  │  └─ RecommendationPanel.tsx
-│  │     Displays analyst recommendation
-│  │
-│  └─ search
-│     └─ SymbolSearch.tsx
-│        Symbol search component
-│
-├─ hooks
-│  Custom React hooks for data logic
-│  ├─ useCandles.ts
-│  │  Fetch candlestick data
-│  ├─ useMarketData.ts
-│  │  Fetch company / metrics / news
-│  └─ usePriceStream.ts
-│     Subscribe to WebSocket price stream
-│
-├─ pages
-│  └─ DashboardPage.tsx
-│     Main dashboard page
-│
-├─ services
-│  API communication layer
-│  ├─ candleService.ts
-│  │  Fetch candle data
-│  └─ quoteService.ts
-│     Fetch market data
-│
-├─ types
-│   └─ market.ts
-│      TypeScript interfaces
-│   
-├─ App.tsx
-│  Application root component
-│
-├─ main.tsx
-│  React entry point
-│
-└─ index.css
-   Global styles
+│  ├─ app
+│  │  └─ router.tsx
+│  │     React Router configuration
+│  ├─ components
+│  │  ├─ chart
+│  │  │  └─ CandleChart.tsx
+│  │  │     Candlestick chart component
+│  │  ├─ market
+│  │  │  ├─ CompanyPanel.tsx
+│  │  │  │  Company information panel
+│  │  │  ├─ MetricPanel.tsx
+│  │  │  │  Financial metrics panel
+│  │  │  ├─ NewsPanel.tsx
+│  │  │  │  Related news panel
+│  │  │  ├─ PricePanel.tsx
+│  │  │  │  Real-time price panel
+│  │  │  └─ RecommendationPanel.tsx
+│  │  │     Analyst recommendation panel
+│  │  └─ search
+│  │     └─ SymbolSearch.tsx
+│  │        Symbol search component
+│  ├─ hooks
+│  │  ├─ useCandles.ts
+│  │  │  Fetch candlestick data
+│  │  ├─ useMarketData.ts
+│  │  │  Fetch company, metrics, recommendation, and news data
+│  │  └─ usePriceStream.ts
+│  │     Subscribe to the WebSocket price stream
+│  ├─ pages
+│  │  └─ DashboardPage.tsx
+│  │     Main dashboard page
+│  ├─ services
+│  │  ├─ candleService.ts
+│  │  │  Candle data API client
+│  │  └─ quoteService.ts
+│  │     Quote subscription API client
+│  ├─ types
+│  │  └─ market.ts
+│  │     Shared TypeScript types
+│  ├─ App.tsx
+│  │  Application root component
+│  ├─ index.css
+│  │  Global styles
+│  └─ main.tsx
+│     React entry point
+├─ public
+├─ package.json
+└─ vite.config.ts
 ```
 
-## Backend Microservices
+---
+
+## Backend Services
 
 This frontend connects to backend services built with:
 
@@ -122,9 +121,37 @@ This frontend connects to backend services built with:
 - Redis
 - WebSocket
 
-**Backend repository**
+Backend repository:
 
 https://github.com/YungHuang85/real-time-market-data-platform-backend
+
+---
+
+## Local Development
+
+### Prerequisites
+
+- Node.js
+- npm
+- Running backend services
+
+### Install
+
+```bash
+npm install
+```
+
+### Start the development server
+
+```bash
+npm run dev
+```
+
+The frontend expects backend services to be available locally:
+
+- `http://localhost:8080` for WebSocket price streaming
+- `http://localhost:8081` for quote, company, metric, recommendation, and news APIs
+- `http://localhost:8082` for candlestick APIs
 
 ---
 
