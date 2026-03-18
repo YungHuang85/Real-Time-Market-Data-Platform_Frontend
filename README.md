@@ -61,50 +61,32 @@ It is designed to work with a Spring Boot microservices backend powered by Apach
 stock_react_microservice
 ├─ src
 │  ├─ app
-│  │  └─ router.tsx
-│  │     React Router configuration
+│  │  └─ router.tsx                 # React Router configuration
 │  ├─ components
 │  │  ├─ chart
-│  │  │  └─ CandleChart.tsx
-│  │  │     Candlestick chart component
+│  │  │  └─ CandleChart.tsx         # Candlestick chart component
 │  │  ├─ market
-│  │  │  ├─ CompanyPanel.tsx
-│  │  │  │  Company information panel
-│  │  │  ├─ MetricPanel.tsx
-│  │  │  │  Financial metrics panel
-│  │  │  ├─ NewsPanel.tsx
-│  │  │  │  Related news panel
-│  │  │  ├─ PricePanel.tsx
-│  │  │  │  Real-time price panel
-│  │  │  └─ RecommendationPanel.tsx
-│  │  │     Analyst recommendation panel
+│  │  │  ├─ CompanyPanel.tsx        # Company information panel
+│  │  │  ├─ MetricPanel.tsx         # Financial metrics panel
+│  │  │  ├─ NewsPanel.tsx           # Related news panel
+│  │  │  ├─ PricePanel.tsx          # Real-time price panel
+│  │  │  └─ RecommendationPanel.tsx # Analyst recommendation panel
 │  │  └─ search
-│  │     └─ SymbolSearch.tsx
-│  │        Symbol search component
+│  │     └─ SymbolSearch.tsx        # Symbol search component
 │  ├─ hooks
-│  │  ├─ useCandles.ts
-│  │  │  Fetch candlestick data
-│  │  ├─ useMarketData.ts
-│  │  │  Fetch company, metrics, recommendation, and news data
-│  │  └─ usePriceStream.ts
-│  │     Subscribe to the WebSocket price stream
+│  │  ├─ useCandles.ts              # Fetch candlestick data
+│  │  ├─ useMarketData.ts           # Fetch company, metrics, recommendation, and news data
+│  │  └─ usePriceStream.ts          # Subscribe to the WebSocket price stream
 │  ├─ pages
-│  │  └─ DashboardPage.tsx
-│  │     Main dashboard page
+│  │  └─ DashboardPage.tsx          # Main dashboard page
 │  ├─ services
-│  │  ├─ candleService.ts
-│  │  │  Candle data API client
-│  │  └─ quoteService.ts
-│  │     Quote subscription API client
+│  │  ├─ candleService.ts           # Candle data API client
+│  │  └─ quoteService.ts            # Quote subscription API client
 │  ├─ types
-│  │  └─ market.ts
-│  │     Shared TypeScript types
-│  ├─ App.tsx
-│  │  Application root component
-│  ├─ index.css
-│  │  Global styles
-│  └─ main.tsx
-│     React entry point
+│  │  └─ market.ts                  # Shared TypeScript types
+│  ├─ App.tsx                       # Application root component
+│  ├─ index.css                     # Global styles
+│  └─ main.tsx                      # React entry point
 ├─ public
 ├─ package.json
 └─ vite.config.ts
